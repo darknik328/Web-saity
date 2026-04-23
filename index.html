@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кибербезопасность веб-сайтов | Главная</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 2px solid #00ff9d;
+            margin-bottom: 40px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #00ff9d;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            background: #00ff9d;
+            color: #0a0e27;
+            transform: translateY(-2px);
+        }
+        h1 {
+            color: #00ff9d;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #ff6b6b;
+            margin: 20px 0 15px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 4px solid #00ff9d;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateX(10px);
+        }
+        .code-block {
+            background: #0a0e27;
+            border: 1px solid #00ff9d;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid #2a2f4a;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            .container { padding: 15px; }
+            nav { gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html">🏠 Главная</a>
+                <a href="threats.html">⚠️ Угрозы</a>
+                <a href="defense.html">🛡️ Защита</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>🔐 Кибербезопасность веб-сайтов</h1>
+        <div class="card">
+            <h2>Что такое веб-кибербезопасность?</h2>
+            <p>Это комплекс мер, технологий и практик, направленных на защиту веб-сайтов, веб-приложений и пользовательских данных от кибератак, несанкционированного доступа, кражи информации и повреждения.</p>
+        </div>
+
+        <div class="card">
+            <h2>Три кита безопасности веб-разработки</h2>
+            <div class="grid">
+                <div>
+                    <h3>🔒 Конфиденциальность</h3>
+                    <p>Данные доступны только авторизованным лицам. Используйте шифрование, HTTPS, правильную аутентификацию.</p>
+                    <div class="code-block">
+                        // Установка secure-флагов для cookies
+                        Set-Cookie: sessionId=abc123; Secure; HttpOnly; SameSite=Strict
+                    </div>
+                </div>
+                <div>
+                    <h3>✅ Целостность</h3>
+                    <p>Информация не изменяется некорректно. Хеширование, цифровые подписи, контроль версий.</p>
+                    <div class="code-block">
+                        // Проверка хеша файла
+                        const crypto = require('crypto');
+                        const hash = crypto.createHash('sha256');
+                    </div>
+                </div>
+                <div>
+                    <h3>⚡ Доступность</h3>
+                    <p>Ресурс работает для легитимных пользователей. Защита от DDoS, балансировка нагрузки.</p>
+                    <div class="code-block">
+                        // Rate limiting middleware (Express)
+                        app.use(rateLimit({
+                            windowMs: 15 * 60 * 1000,
+                            max: 100
+                        }));
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Почему это критически важно?</h2>
+            <p>По данным статистики, <strong>60% малых компаний закрываются в течение 6 месяцев после серьёзной кибератаки</strong>. Средняя стоимость утечки данных в 2024 году достигла $4.45 млн. Веб-сайты атакуются в среднем 94 раза в день.</p>
+            <p>Кроме прямых убытков, компании теряют репутацию, клиентов и могут получить многомиллионные штрафы по GDPR, CCPA и другим регуляциям.</p>
+        </div>
+
+        <div class="card">
+            <h2>Основные направления защиты веб-приложений</h2>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>🔐 Аутентификация и управление сессиями</strong> — сложные пароли, 2FA, JWT с коротким TTL</li>
+                <li><strong>📡 Безопасность сети</strong> — HTTPS, HSTS, защищённые заголовки</li>
+                <li><strong>💾 Защита данных</strong> — шифрование в покое и при передаче, безопасное хранение паролей (bcrypt, Argon2)</li>
+                <li><strong>🧪 Безопасный SDLC</strong> — тестирование на проникновение, статический анализ кода (SAST), динамический анализ (DAST)</li>
+                <li><strong>📝 Аудит и мониторинг</strong> — логирование, SIEM-системы, обнаружение вторжений (IDS/IPS)</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Пример безопасного кода авторизации (Node.js)</h2>
+            <div class="code-block">
+                <pre style="color:#00ff9d">
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+// Хеширование пароля с солью (10 раундов)
+const saltRounds = 10;
+const hashedPassword = await bcrypt.hash(userPassword, saltRounds);
+
+// Проверка пароля
+const isValid = await bcrypt.compare(inputPassword, storedHash);
+
+// JWT с ограниченным сроком жизни
+const token = jwt.sign(
+    { userId: user.id, role: user.role },
+    process.env.JWT_SECRET,
+    { expiresIn: '15m', algorithm: 'HS256' }
+);
+                </pre>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="threats.html" style="background: #ff6b6b; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: bold;">🚨 Изучить основные угрозы →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Веб-кибербезопасность | Все материалы носят образовательный характер</p>
+        </div>
+    </footer>
+</body>
+</html>
